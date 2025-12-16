@@ -8,7 +8,7 @@
 <div align="center">
   <br />
   <a href="#" target="_blank">
-    <img src="./public/images/ecommercegows.png" alt="GOWS Hardware Preview" width="100%" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    <img src="public/images/ecommercegows.png" alt="GOWS Hardware Preview" width="100%" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
   </a>
   <br />
   <p><i>Plataforma de E-commerce de Alto Rendimiento con Configurador de PC Interactivo</i></p>
