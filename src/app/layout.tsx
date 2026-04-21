@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer"; // <--- Nuevo Footer
 import ScrollToTop from "@/components/ui/ScrollToTop"; // <--- Botón de subir
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,9 @@ export default function RootLayout({
 
         {/* 4. Botón Flotante (Scroll to Top) */}
         <ScrollToTop />
+
+        {/* 5. Toaster Global */}
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );

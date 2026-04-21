@@ -6,6 +6,7 @@ import Link from "next/link";
 import { X, Search, ChevronRight } from "lucide-react";
 import { products } from "@/data/products";
 import { Product } from "@/types/product";
+import { useDebounce } from "@/hooks/useDebounce";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -14,40 +15,43 @@ interface SearchModalProps {
 
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState("");
+  const debouncedQuery = useDebounce(query, 300);
   const [results, setResults] = useState<Product[]>([]);
 
-  // CORRECCIÓN: Usamos un timer (debounce) para evitar el error de setState síncrono
-  // y para mejorar el rendimiento.
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (query.trim() === "") {
-        setResults([]);
-      } else {
-        const filtered = products.filter(
-          (p) =>
-            p.name.toLowerCase().includes(query.toLowerCase()) || p.category.toLowerCase().includes(query.toLowerCase())
-        );
-        setResults(filtered.slice(0, 5));
-      }
-    }, 300); // Espera 300ms después de que dejas de escribir
+    if (debouncedQuery.trim() === "") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setResults([]);
+    } else {
+      const filtered = products.filter(
+        (p) =>
+          p.name.toLowerCase().includes(debouncedQuery.toLowerCase()) || p.category.toLowerCase().includes(debouncedQuery.toLowerCase())
+      );
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setResults(filtered.slice(0, 5));
+    }
+  }, [debouncedQuery]);
 
-    return () => clearTimeout(timer);
-  }, [query]);
-
-  // Evitar scroll de fondo
+  // Evitar scroll de fondo y escuchar tecla ESC
   useEffect(() => {
-    if (isOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") onClose();
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "unset";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
   return (
     // CORRECCIÓN: z-50 es estándar en Tailwind, evitamos z-[60]
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-slate-900/50 p-4 pt-20 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-slate-900/50 p-4 pt-20 backdrop-blur-sm animate-fade-in">
       <div className="w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl">
         {/* Input Header */}
         <div className="flex items-center gap-4 border-b border-slate-100 p-4">

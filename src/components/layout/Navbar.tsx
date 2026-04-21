@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ShoppingCart, Menu, Search, Monitor, User } from "lucide-react";
 import { useCartStore } from "@/store/cart";
@@ -9,6 +9,12 @@ import SearchModal from "@/components/ui/SearchModal"; // <--- Importamos el bus
 export default function Navbar() {
   const totalItems = useCartStore((state) => state.getTotalItems());
   const [isSearchOpen, setIsSearchOpen] = useState(false); // <--- Estado para el buscador
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMounted(true);
+  }, []);
 
   return (
     <>
@@ -64,7 +70,7 @@ export default function Navbar() {
               aria-label="Ver carrito"
             >
               <ShoppingCart size={20} className="group-hover:text-blue-600 transition-colors" />
-              {totalItems > 0 && (
+              {isMounted && totalItems > 0 && (
                 <span className="absolute top-0 right-0 h-4 w-4 rounded-full bg-blue-600 text-[10px] font-bold text-white flex items-center justify-center animate-bounce">
                   {totalItems}
                 </span>

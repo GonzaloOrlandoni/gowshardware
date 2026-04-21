@@ -4,6 +4,7 @@ import { ShoppingCart, Check } from "lucide-react";
 import { useCartStore } from "@/store/cart";
 import { Product } from "@/types/product";
 import { useState } from "react";
+import { toast } from "sonner";
 
 interface AddToCartButtonProps {
   product: Product;
@@ -21,6 +22,7 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
 
     // 2. Feedback visual (cambia el botón por 2 segundos)
     setIsAdded(true);
+    toast.success(`${product.name} agregado al carrito`);
     setTimeout(() => setIsAdded(false), 2000);
   };
 

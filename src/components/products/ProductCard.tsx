@@ -6,6 +6,7 @@ import { Plus, Check } from "lucide-react";
 import { Product } from "@/types/product";
 import { useCartStore } from "@/store/cart";
 import { useState } from "react";
+import { toast } from "sonner";
 
 interface ProductCardProps {
   product: Product;
@@ -21,6 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     addItem(product);
     setIsAdded(true);
+    toast.success(`${product.name} agregado al carrito`);
     setTimeout(() => setIsAdded(false), 2000);
   };
 

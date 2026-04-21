@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Trash2, ArrowLeft, MessageCircle, XCircle } from "lucide-react";
@@ -7,6 +8,12 @@ import { useCartStore } from "@/store/cart";
 
 export default function CartPage() {
   const { cart, removeItem, clearCart } = useCartStore();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMounted(true);
+  }, []);
 
   // Calcular total
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -19,10 +26,12 @@ export default function CartPage() {
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
+  if (!isMounted) return null;
+
   // ESTADO: CARRITO VACÍO (Con Emoji)
   if (cart.length === 0) {
     return (
-      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center px-4 animate-in fade-in zoom-in duration-300">
+      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center px-4 animate-zoom-in">
         <div className="text-8xl">😔</div>
         <div>
           <h2 className="text-3xl font-bold text-slate-900">Tu carrito está vacío</h2>

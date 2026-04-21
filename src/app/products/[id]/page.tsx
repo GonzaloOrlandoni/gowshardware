@@ -4,6 +4,26 @@ import { ArrowLeft, Check, Truck, ShieldCheck } from "lucide-react"; // Se quit�
 import { products } from "@/data/products";
 import { notFound } from "next/navigation";
 import AddToCartButton from "@/components/products/AddToCartButton";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const product = products.find((p) => p.id === id);
+
+  if (!product) {
+    return {
+      title: "Producto no encontrado | GOWS Hardware",
+    };
+  }
+
+  return {
+    title: `${product.name} | GOWS Hardware`,
+    description: `Comprá ${product.name} al mejor precio. Garantía oficial y envíos a todo el país.`,
+    openGraph: {
+      images: [product.image],
+    },
+  };
+}
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
