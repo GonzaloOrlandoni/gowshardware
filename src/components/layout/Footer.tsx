@@ -140,7 +140,7 @@ export default function Footer() {
 
         {/* SECCIÓN INFERIOR: LEGALES */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2024 GOWS Hardware. Todos los derechos reservados.</p>
+          <p>© 2026 GOWS Hardware. Todos los derechos reservados.</p>
 
           <div className="flex items-center gap-6">
             <Link href="#" className="hover:text-white transition-colors">

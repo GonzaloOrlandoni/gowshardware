@@ -11,7 +11,6 @@ export default function CartPage() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
   }, []);
 
@@ -20,7 +19,7 @@ export default function CartPage() {
 
   // Generar mensaje de WhatsApp
   const handleCheckout = () => {
-    const phoneNumber = "5491112345678"; // Reemplaza con tu número real
+    const phoneNumber = "5491128831895";
     const cartItems = cart.map((item) => `• ${item.quantity}x ${item.name} - $${item.price}`).join("\n");
     const message = `Hola GOWS Hardware! 👋\nQuiero finalizar mi compra:\n\n${cartItems}\n\n*Total: $${total.toLocaleString()}*`;
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");

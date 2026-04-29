@@ -2,19 +2,21 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ShoppingCart, Menu, Search, Monitor, User } from "lucide-react";
+import { ShoppingCart, Menu, Search, Monitor, User, X } from "lucide-react";
 import { useCartStore } from "@/store/cart";
-import SearchModal from "@/components/ui/SearchModal"; // <--- Importamos el buscador
+import SearchModal from "@/components/ui/SearchModal";
 
 export default function Navbar() {
   const totalItems = useCartStore((state) => state.getTotalItems());
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // <--- Estado para el buscador
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
   }, []);
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <>
@@ -45,7 +47,6 @@ export default function Navbar() {
 
           {/* Iconos Acción */}
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* LUPA: Ahora abre el Modal */}
             <button
               onClick={() => setIsSearchOpen(true)}
               className="p-2 text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
@@ -54,7 +55,6 @@ export default function Navbar() {
               <Search size={20} />
             </button>
 
-            {/* USUARIO: Ahora lleva al perfil */}
             <Link
               href="/profile"
               className="hidden sm:flex p-2 text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
@@ -77,14 +77,41 @@ export default function Navbar() {
               )}
             </Link>
 
-            <button className="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-full">
-              <Menu size={24} />
+            {/* Hamburger — con estado funcional */}
+            <button
+              className="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
+
+        {/* Menú Mobile Desplegable */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-t border-slate-100 bg-white px-4 py-4 flex flex-col gap-4 font-medium text-slate-700 animate-in slide-in-from-top-2 duration-200">
+            <Link href="/" onClick={closeMobileMenu} className="hover:text-blue-600 transition-colors py-2">
+              Inicio
+            </Link>
+            <Link href="/#catalogo" onClick={closeMobileMenu} className="hover:text-blue-600 transition-colors py-2">
+              Catálogo
+            </Link>
+            <Link href="/build" onClick={closeMobileMenu} className="hover:text-blue-600 transition-colors py-2">
+              Arma tu PC
+            </Link>
+            <Link href="/cart" onClick={closeMobileMenu} className="hover:text-blue-600 transition-colors py-2">
+              Mi Carrito {isMounted && totalItems > 0 && <span className="ml-2 rounded-full bg-blue-600 px-2 py-0.5 text-xs text-white">{totalItems}</span>}
+            </Link>
+            <Link href="/profile" onClick={closeMobileMenu} className="hover:text-blue-600 transition-colors py-2">
+              Mi Cuenta
+            </Link>
+          </div>
+        )}
       </nav>
 
-      {/* Renderizamos el Modal fuera del nav */}
+      {/* Modal de Búsqueda */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
