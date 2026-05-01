@@ -26,11 +26,11 @@
 
 - **Arquitectura Modular:** Dividido en submódulos (`BuildStepList`, `BuildSummary`, `BuildStepModal`) para garantizar un mantenimiento de código escalable y un _render tree_ liviano en React.
 - **Flujo Guiado:** 10 pasos interactivos (CPU, GPU, RAM multislot, etc.) con validación lógica de componentes requeridos.
-- **Exportación de Presupuestos (Code Splitting):** Generación automática de presupuestos en PDF. Las librerías de generación (`jspdf`) son importadas **dinámicamente** para reducir de forma masiva el tamaño inicial del *Bundle* de JavaScript (Performance Score al máximo).
+- **Exportación de Presupuestos (Code Splitting):** Generación automática de presupuestos en PDF. Las librerías de generación (`jspdf`) son importadas **dinámicamente** para reducir de forma masiva el tamaño inicial del _Bundle_ de JavaScript (Performance Score al máximo).
 
 ### 🛒 Experiencia de Compra & Rendimiento
 
-- **Carrito Persistente (Zustand SSR Safe):** Estado global persistente en el navegador usando Zustand, con un estricto control de hidratación (Hydration Check) para evitar parpadeos y errores de *mismatch* en el renderizado del Servidor (SSR) vs el Cliente.
+- **Carrito Persistente (Zustand SSR Safe):** Estado global persistente en el navegador usando Zustand, con un estricto control de hidratación (Hydration Check) para evitar parpadeos y errores de _mismatch_ en el renderizado del Servidor (SSR) vs el Cliente.
 - **Notificaciones Toast:** Feedback visual inmediato e intuitivo impulsado por `sonner` cada vez que se interactúa con el carrito de compras.
 - **Búsqueda Debounced:** Barra de búsqueda optimizada con un Custom Hook (`useDebounce`) para evitar sobrecargar el Call Stack al escribir, filtrando los productos de forma eficiente.
 
@@ -38,7 +38,7 @@
 
 - **Next.js Dynamic Metadata:** Generación dinámica de `Títulos` y etiquetas `Open Graph` para cada producto individual, maximizando el impacto SEO y la presentación en redes sociales y WhatsApp.
 - **Tailwind CSS v4.0:** Estilos modernos impulsados por el nuevo motor de Tailwind, incluyendo keyframes y directivas `@theme` nativas para las animaciones fluidas de interfaz.
-- **Accesibilidad Total:** Modales controlables mediante teclado (Cierre mediante tecla `ESC`) y prevención activa del scroll en el cuerpo de la página (*focus traps*).
+- **Accesibilidad Total:** Modales controlables mediante teclado (Cierre mediante tecla `ESC`) y prevención activa del scroll en el cuerpo de la página (_focus traps_).
 
 ## 💻 Tecnologías Utilizadas
 

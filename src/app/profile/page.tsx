@@ -3,7 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 // CORRECCIÓN: Agregamos 'Plus' a los imports 👇
-import { User, Package, MapPin, CreditCard, LogOut, Settings, Bell, Plus } from "lucide-react";
+import {
+  User,
+  Package,
+  MapPin,
+  CreditCard,
+  LogOut,
+  Settings,
+  Bell,
+  Plus,
+} from "lucide-react";
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState("pedidos");
@@ -51,12 +60,16 @@ export default function ProfilePage() {
           {/* VISTA PEDIDOS */}
           {activeTab === "pedidos" && (
             <div className="animate-in fade-in duration-300">
-              <h1 className="mb-6 text-2xl font-bold text-slate-900">Historial de Pedidos</h1>
+              <h1 className="mb-6 text-2xl font-bold text-slate-900">
+                Historial de Pedidos
+              </h1>
               <div className="space-y-4">
                 <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
                   <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 p-4">
                     <div>
-                      <p className="text-xs font-bold text-slate-500 uppercase">Pedido #29381</p>
+                      <p className="text-xs font-bold text-slate-500 uppercase">
+                        Pedido #29381
+                      </p>
                       <p className="text-sm text-slate-900">10 Dic 2025</p>
                     </div>
                     <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700">
@@ -73,7 +86,9 @@ export default function ProfilePage() {
                       />
                     </div>
                     <div>
-                      <p className="font-bold text-slate-900">NVIDIA RTX 4090</p>
+                      <p className="font-bold text-slate-900">
+                        NVIDIA RTX 4090
+                      </p>
                       <p className="text-sm text-slate-500">x1 Unidad</p>
                     </div>
                   </div>
@@ -85,7 +100,9 @@ export default function ProfilePage() {
           {/* VISTA DIRECCIONES */}
           {activeTab === "direcciones" && (
             <div className="animate-in fade-in duration-300">
-              <h1 className="mb-6 text-2xl font-bold text-slate-900">Mis Direcciones</h1>
+              <h1 className="mb-6 text-2xl font-bold text-slate-900">
+                Mis Direcciones
+              </h1>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-6 relative">
                   <span className="absolute top-4 right-4 text-xs font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded">
@@ -95,8 +112,12 @@ export default function ProfilePage() {
                     <MapPin size={24} />
                   </div>
                   <p className="font-bold text-slate-900">Casa</p>
-                  <p className="text-slate-600">Av. Corrientes 1234, Piso 2 B</p>
-                  <p className="text-slate-500 text-sm">CABA, Buenos Aires (1043)</p>
+                  <p className="text-slate-600">
+                    Av. Corrientes 1234, Piso 2 B
+                  </p>
+                  <p className="text-slate-500 text-sm">
+                    CABA, Buenos Aires (1043)
+                  </p>
                 </div>
                 <div className="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 p-6 text-slate-400 hover:border-blue-400 hover:text-blue-500 cursor-pointer transition-colors">
                   <Plus size={32} className="mb-2" />
@@ -109,7 +130,9 @@ export default function ProfilePage() {
           {/* VISTA PAGOS */}
           {activeTab === "pagos" && (
             <div className="animate-in fade-in duration-300">
-              <h1 className="mb-6 text-2xl font-bold text-slate-900">Billetera</h1>
+              <h1 className="mb-6 text-2xl font-bold text-slate-900">
+                Billetera
+              </h1>
               <div className="rounded-xl border border-slate-200 bg-white p-6">
                 <p className="text-slate-500 mb-4">Tarjetas guardadas</p>
                 <div className="flex items-center gap-4 p-4 border rounded-lg">
@@ -117,7 +140,9 @@ export default function ProfilePage() {
                     <CreditCard className="text-slate-700" />
                   </div>
                   <div>
-                    <p className="font-bold text-slate-900">Visa terminada en 4242</p>
+                    <p className="font-bold text-slate-900">
+                      Visa terminada en 4242
+                    </p>
                     <p className="text-sm text-slate-500">Vence 12/28</p>
                   </div>
                 </div>
@@ -128,14 +153,18 @@ export default function ProfilePage() {
           {/* VISTA CONFIG */}
           {activeTab === "config" && (
             <div className="animate-in fade-in duration-300">
-              <h1 className="mb-6 text-2xl font-bold text-slate-900">Configuración</h1>
+              <h1 className="mb-6 text-2xl font-bold text-slate-900">
+                Configuración
+              </h1>
               <div className="space-y-4 max-w-lg">
                 <div className="flex items-center justify-between p-4 border rounded-xl bg-white">
                   <div className="flex items-center gap-3">
                     <Bell className="text-slate-500" />
                     <div>
                       <p className="font-bold">Notificaciones</p>
-                      <p className="text-sm text-slate-500">Recibir ofertas por mail</p>
+                      <p className="text-sm text-slate-500">
+                        Recibir ofertas por mail
+                      </p>
                     </div>
                   </div>
                   <div className="h-6 w-11 bg-blue-600 rounded-full relative cursor-pointer">

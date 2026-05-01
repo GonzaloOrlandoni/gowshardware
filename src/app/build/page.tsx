@@ -21,10 +21,30 @@ import {
 } from "lucide-react";
 
 const STEPS = [
-  { id: "CPU", label: "Procesador", icon: Cpu, category: "CPU", required: true },
-  { id: "Motherboard", label: "Motherboard", icon: CircuitBoard, category: "Motherboard", required: true },
+  {
+    id: "CPU",
+    label: "Procesador",
+    icon: Cpu,
+    category: "CPU",
+    required: true,
+  },
+  {
+    id: "Motherboard",
+    label: "Motherboard",
+    icon: CircuitBoard,
+    category: "Motherboard",
+    required: true,
+  },
   { id: "Cooler", label: "Refrigeración", icon: Fan, category: "Cooler" },
-  { id: "RAM", label: "Memoria RAM", icon: MemoryStick, category: "RAM", multi: true, max: 4, required: true },
+  {
+    id: "RAM",
+    label: "Memoria RAM",
+    icon: MemoryStick,
+    category: "RAM",
+    multi: true,
+    max: 4,
+    required: true,
+  },
   { id: "GPU", label: "Placa de Video", icon: Monitor, category: "GPU" },
   {
     id: "Almacenamiento",
@@ -35,10 +55,29 @@ const STEPS = [
     max: 3,
     hasFilters: true,
   },
-  { id: "Fuente", label: "Fuente de Alimentación", icon: Cable, category: "Fuente", required: true },
-  { id: "Gabinete", label: "Gabinete", icon: Server, category: "Gabinete", required: true },
+  {
+    id: "Fuente",
+    label: "Fuente de Alimentación",
+    icon: Cable,
+    category: "Fuente",
+    required: true,
+  },
+  {
+    id: "Gabinete",
+    label: "Gabinete",
+    icon: Server,
+    category: "Gabinete",
+    required: true,
+  },
   { id: "Monitor", label: "Monitor", icon: Monitor, category: "Monitor" },
-  { id: "Perifericos", label: "Periféricos", icon: Mouse, category: "Perifericos", multi: true, max: 5 },
+  {
+    id: "Perifericos",
+    label: "Periféricos",
+    icon: Mouse,
+    category: "Perifericos",
+    multi: true,
+    max: 5,
+  },
 ];
 
 type StorageFilterType = "todos" | "ssd" | "hdd";
@@ -50,14 +89,18 @@ export default function BuildPage() {
   const [selection, setSelection] = useState<Record<string, Product[]>>({});
   const [activeStepId, setActiveStepId] = useState<string | null>(null);
   const [includeAssembly, setIncludeAssembly] = useState(true);
-  const [storageFilter, setStorageFilter] = useState<StorageFilterType>("todos");
+  const [storageFilter, setStorageFilter] =
+    useState<StorageFilterType>("todos");
 
   const assemblyService = products.find((p) => p.id === "serv-armado");
   const flatSelection = Object.values(selection).flat();
   const hardwareTotal = flatSelection.reduce((acc, p) => acc + p.price, 0);
-  const assemblyPrice = includeAssembly && assemblyService ? assemblyService.price : 0;
+  const assemblyPrice =
+    includeAssembly && assemblyService ? assemblyService.price : 0;
   const totalPrice = hardwareTotal + assemblyPrice;
-  const isReadyToBuy = STEPS.filter((s) => s.required).every((s) => selection[s.id]?.length > 0);
+  const isReadyToBuy = STEPS.filter((s) => s.required).every(
+    (s) => selection[s.id]?.length > 0,
+  );
 
   // --- FUNCIÓN GENERAR PDF ---
   const handleDownloadPDF = async () => {
@@ -72,10 +115,18 @@ export default function BuildPage() {
     doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 14, 30);
     doc.text("Web: www.gowshardware.com", 14, 35);
 
-    const tableData = flatSelection.map((p) => [p.category, p.name, `$${p.price.toLocaleString()}`]);
+    const tableData = flatSelection.map((p) => [
+      p.category,
+      p.name,
+      `$${p.price.toLocaleString()}`,
+    ]);
 
     if (includeAssembly && assemblyService) {
-      tableData.push(["Servicio", "Armado Profesional e Instalación", `$${assemblyService.price.toLocaleString()}`]);
+      tableData.push([
+        "Servicio",
+        "Armado Profesional e Instalación",
+        `$${assemblyService.price.toLocaleString()}`,
+      ]);
     }
 
     autoTable(doc, {
@@ -85,7 +136,11 @@ export default function BuildPage() {
       foot: [["", "TOTAL FINAL", `$${totalPrice.toLocaleString()}`]],
       theme: "grid",
       headStyles: { fillColor: [37, 99, 235] },
-      footStyles: { fillColor: [241, 245, 249], textColor: [0, 0, 0], fontStyle: "bold" },
+      footStyles: {
+        fillColor: [241, 245, 249],
+        textColor: [0, 0, 0],
+        fontStyle: "bold",
+      },
     });
 
     doc.save("Presupuesto_GOWS.pdf");
@@ -95,7 +150,8 @@ export default function BuildPage() {
     setSelection((prev) => {
       const currentItems = prev[step.id] || [];
       if (step.multi) {
-        if (currentItems.length < (step.max || 1)) return { ...prev, [step.id]: [...currentItems, product] };
+        if (currentItems.length < (step.max || 1))
+          return { ...prev, [step.id]: [...currentItems, product] };
         return prev;
       } else {
         return { ...prev, [step.id]: [product] };
@@ -107,7 +163,9 @@ export default function BuildPage() {
   const handleRemove = (stepId: string, indexToRemove: number) => {
     setSelection((prev) => {
       const currentItems = prev[stepId] || [];
-      const newItems = currentItems.filter((_, index) => index !== indexToRemove);
+      const newItems = currentItems.filter(
+        (_, index) => index !== indexToRemove,
+      );
       return { ...prev, [stepId]: newItems };
     });
   };
@@ -121,10 +179,14 @@ export default function BuildPage() {
   const activeStepConfig = STEPS.find((s) => s.id === activeStepId);
   const modalProducts = useMemo(() => {
     if (!activeStepConfig) return [];
-    let filtered = products.filter((p) => p.category === activeStepConfig.category);
+    let filtered = products.filter(
+      (p) => p.category === activeStepConfig.category,
+    );
     if (activeStepConfig.id === "Almacenamiento" && storageFilter !== "todos") {
       filtered = filtered.filter((p) => {
-        const isSSD = p.name.toLowerCase().includes("ssd") || p.specs?.Tipo?.toLowerCase().includes("ssd");
+        const isSSD =
+          p.name.toLowerCase().includes("ssd") ||
+          p.specs?.Tipo?.toLowerCase().includes("ssd");
         return storageFilter === "ssd" ? isSSD : !isSSD;
       });
     }
@@ -134,8 +196,12 @@ export default function BuildPage() {
   return (
     <div className="container mx-auto px-4 py-8 pb-24">
       <div className="mb-8 border-b border-slate-200 pb-6">
-        <h1 className="text-3xl font-extrabold text-slate-900">Configurador de PC</h1>
-        <p className="mt-2 text-slate-600">Selecciona tus componentes. Nosotros la armamos.</p>
+        <h1 className="text-3xl font-extrabold text-slate-900">
+          Configurador de PC
+        </h1>
+        <p className="mt-2 text-slate-600">
+          Selecciona tus componentes. Nosotros la armamos.
+        </p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-12 items-start">

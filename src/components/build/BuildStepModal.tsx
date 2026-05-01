@@ -46,7 +46,9 @@ export default function BuildStepModal({
         <div className="flex shrink-0 items-center justify-between border-b border-slate-100 p-5">
           <div className="flex items-center gap-3">
             <activeStepConfig.icon className="text-blue-600" size={24} />
-            <h2 className="text-xl font-bold text-slate-900">Seleccionar {activeStepConfig.label}</h2>
+            <h2 className="text-xl font-bold text-slate-900">
+              Seleccionar {activeStepConfig.label}
+            </h2>
           </div>
           <button
             onClick={onClose}
@@ -68,7 +70,11 @@ export default function BuildStepModal({
                     : "bg-white border border-slate-200 text-slate-600 hover:bg-blue-50 hover:text-blue-600"
                 }`}
               >
-                {filtro === "ssd" ? "Sólido (SSD)" : filtro === "hdd" ? "Rígido (HDD)" : filtro}
+                {filtro === "ssd"
+                  ? "Sólido (SSD)"
+                  : filtro === "hdd"
+                    ? "Rígido (HDD)"
+                    : filtro}
               </button>
             ))}
           </div>
@@ -93,7 +99,9 @@ export default function BuildStepModal({
                   <h3 className="font-bold text-slate-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
                     {product.name}
                   </h3>
-                  <span className="text-lg font-bold text-blue-600">${product.price.toLocaleString()}</span>
+                  <span className="text-lg font-bold text-blue-600">
+                    ${product.price.toLocaleString()}
+                  </span>
                 </div>
                 <button className="mt-auto rounded-full bg-blue-50 p-2 text-blue-600 group-hover:bg-blue-600 group-hover:text-white">
                   <Plus size={20} />
@@ -101,7 +109,9 @@ export default function BuildStepModal({
               </div>
             ))}
             {modalProducts.length === 0 && (
-              <div className="col-span-full py-16 text-center text-slate-500">No se encontraron componentes.</div>
+              <div className="col-span-full py-16 text-center text-slate-500">
+                No se encontraron componentes.
+              </div>
             )}
           </div>
         </div>

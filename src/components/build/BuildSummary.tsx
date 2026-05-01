@@ -1,4 +1,10 @@
-import { ShoppingCart, Wrench, Check, CheckCircle, FileDown } from "lucide-react";
+import {
+  ShoppingCart,
+  Wrench,
+  Check,
+  CheckCircle,
+  FileDown,
+} from "lucide-react";
 import { Product } from "@/types/product";
 
 interface BuildSummaryProps {
@@ -34,25 +40,35 @@ export default function BuildSummary({
         <div
           onClick={() => setIncludeAssembly(!includeAssembly)}
           className={`mb-6 flex cursor-pointer items-center justify-between rounded-xl border p-4 transition-all ${
-            includeAssembly ? "border-green-500 bg-green-50" : "border-slate-200 hover:border-slate-300"
+            includeAssembly
+              ? "border-green-500 bg-green-50"
+              : "border-slate-200 hover:border-slate-300"
           }`}
         >
           <div className="flex items-center gap-3">
             <div
               className={`rounded-full p-2 ${
-                includeAssembly ? "bg-green-500 text-white" : "bg-slate-200 text-slate-500"
+                includeAssembly
+                  ? "bg-green-500 text-white"
+                  : "bg-slate-200 text-slate-500"
               }`}
             >
               <Wrench size={20} />
             </div>
             <div>
               <p className="font-bold text-slate-900">Servicio de Armado</p>
-              <p className="text-sm text-slate-600">{includeAssembly ? "Incluido" : "No incluir"}</p>
+              <p className="text-sm text-slate-600">
+                {includeAssembly ? "Incluido" : "No incluir"}
+              </p>
             </div>
           </div>
           <div className="text-right">
-            {includeAssembly && <Check size={20} className="text-green-600 ml-auto mb-1" />}
-            <p className={`font-bold ${includeAssembly ? "text-green-700" : "text-slate-400"}`}>
+            {includeAssembly && (
+              <Check size={20} className="text-green-600 ml-auto mb-1" />
+            )}
+            <p
+              className={`font-bold ${includeAssembly ? "text-green-700" : "text-slate-400"}`}
+            >
               ${assemblyService.price.toLocaleString()}
             </p>
           </div>
@@ -68,7 +84,9 @@ export default function BuildSummary({
       <div className="my-6 flex items-end justify-between">
         <span className="text-lg font-bold text-slate-900">Total Final</span>
         <div className="text-right">
-          <span className="block text-3xl font-extrabold text-blue-600">${totalPrice.toLocaleString()}</span>
+          <span className="block text-3xl font-extrabold text-blue-600">
+            ${totalPrice.toLocaleString()}
+          </span>
           <span className="text-xs text-slate-500">IVA Incluido</span>
         </div>
       </div>

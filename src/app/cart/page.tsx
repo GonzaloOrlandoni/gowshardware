@@ -20,9 +20,14 @@ export default function CartPage() {
   // Generar mensaje de WhatsApp
   const handleCheckout = () => {
     const phoneNumber = "5491128831895";
-    const cartItems = cart.map((item) => `• ${item.quantity}x ${item.name} - $${item.price}`).join("\n");
+    const cartItems = cart
+      .map((item) => `• ${item.quantity}x ${item.name} - $${item.price}`)
+      .join("\n");
     const message = `Hola GOWS Hardware! 👋\nQuiero finalizar mi compra:\n\n${cartItems}\n\n*Total: $${total.toLocaleString()}*`;
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+    window.open(
+      `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+      "_blank",
+    );
   };
 
   if (!isMounted) return null;
@@ -33,8 +38,12 @@ export default function CartPage() {
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center px-4 animate-zoom-in">
         <div className="text-8xl">😔</div>
         <div>
-          <h2 className="text-3xl font-bold text-slate-900">Tu carrito está vacío</h2>
-          <p className="mt-2 text-slate-500 text-lg">Parece que aún no has agregado nada.</p>
+          <h2 className="text-3xl font-bold text-slate-900">
+            Tu carrito está vacío
+          </h2>
+          <p className="mt-2 text-slate-500 text-lg">
+            Parece que aún no has agregado nada.
+          </p>
         </div>
         <Link
           href="/"
@@ -83,16 +92,22 @@ export default function CartPage() {
 
               {/* Info del producto */}
               <div className="flex-1">
-                <h3 className="font-bold text-slate-900 line-clamp-1">{item.name}</h3>
+                <h3 className="font-bold text-slate-900 line-clamp-1">
+                  {item.name}
+                </h3>
                 <p className="text-sm text-slate-500 mb-1">{item.category}</p>
                 <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <span className="bg-slate-100 px-2 py-1 rounded">Cant: {item.quantity}</span>
+                  <span className="bg-slate-100 px-2 py-1 rounded">
+                    Cant: {item.quantity}
+                  </span>
                 </div>
               </div>
 
               {/* Precio y Eliminar */}
               <div className="text-right flex flex-col items-end gap-2">
-                <p className="text-lg font-bold text-slate-900">${(item.price * item.quantity).toLocaleString()}</p>
+                <p className="text-lg font-bold text-slate-900">
+                  ${(item.price * item.quantity).toLocaleString()}
+                </p>
                 <button
                   onClick={() => removeItem(item.id)}
                   className="group rounded-full p-2 text-slate-400 hover:bg-red-50 hover:text-red-600 transition-colors"
@@ -114,12 +129,16 @@ export default function CartPage() {
 
         {/* COLUMNA DERECHA: RESUMEN DE PAGO */}
         <div className="h-fit rounded-2xl border border-slate-200 bg-white p-6 shadow-lg lg:sticky lg:top-24">
-          <h2 className="mb-6 text-xl font-bold text-slate-900">Resumen del Pedido</h2>
+          <h2 className="mb-6 text-xl font-bold text-slate-900">
+            Resumen del Pedido
+          </h2>
 
           <div className="space-y-3 border-b border-slate-100 pb-6 text-sm">
             <div className="flex justify-between">
               <span className="text-slate-600">Subtotal</span>
-              <span className="font-medium text-slate-900">${total.toLocaleString()}</span>
+              <span className="font-medium text-slate-900">
+                ${total.toLocaleString()}
+              </span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-600">Envío</span>
@@ -130,7 +149,9 @@ export default function CartPage() {
           <div className="mt-6 flex justify-between items-end">
             <span className="text-lg font-bold text-slate-900">Total</span>
             <div className="text-right">
-              <span className="block text-3xl font-extrabold text-blue-600">${total.toLocaleString()}</span>
+              <span className="block text-3xl font-extrabold text-blue-600">
+                ${total.toLocaleString()}
+              </span>
               <span className="text-xs text-slate-500">IVA Incluido</span>
             </div>
           </div>

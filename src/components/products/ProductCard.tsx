@@ -47,7 +47,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       <div className="flex flex-1 flex-col p-4">
-        <p className="mb-1 text-xs font-medium text-slate-500 uppercase">{product.category}</p>
+        <p className="mb-1 text-xs font-medium text-slate-500 uppercase">
+          {product.category}
+        </p>
 
         <Link href={`/products/${product.id}`}>
           <h3 className="mb-2 text-sm font-bold text-slate-900 line-clamp-2 leading-tight hover:text-blue-600 transition-colors">
@@ -58,7 +60,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="mt-auto flex items-center justify-between">
           <div className="flex flex-col">
             <span className="text-xs text-slate-400">Precio contado</span>
-            <span className="text-lg font-bold text-blue-600">${product.price}</span>
+            <span className="text-lg font-bold text-blue-600">
+              ${product.price}
+            </span>
           </div>
 
           <button

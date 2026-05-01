@@ -25,7 +25,8 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     } else {
       const filtered = products.filter(
         (p) =>
-          p.name.toLowerCase().includes(debouncedQuery.toLowerCase()) || p.category.toLowerCase().includes(debouncedQuery.toLowerCase())
+          p.name.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
+          p.category.toLowerCase().includes(debouncedQuery.toLowerCase()),
       );
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setResults(filtered.slice(0, 5));
@@ -64,7 +65,10 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
           />
-          <button onClick={onClose} className="rounded-full bg-slate-100 p-1 text-slate-500 hover:bg-slate-200">
+          <button
+            onClick={onClose}
+            className="rounded-full bg-slate-100 p-1 text-slate-500 hover:bg-slate-200"
+          >
             <X size={20} />
           </button>
         </div>
@@ -101,11 +105,18 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 />
               </div>
               <div className="flex-1">
-                <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{product.name}</h4>
-                <p className="text-xs text-slate-500 capitalize">{product.category}</p>
+                <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  {product.name}
+                </h4>
+                <p className="text-xs text-slate-500 capitalize">
+                  {product.category}
+                </p>
               </div>
               <span className="font-bold text-slate-900">${product.price}</span>
-              <ChevronRight size={18} className="text-slate-300 group-hover:text-blue-600" />
+              <ChevronRight
+                size={18}
+                className="text-slate-300 group-hover:text-blue-600"
+              />
             </Link>
           ))}
         </div>

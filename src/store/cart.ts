@@ -25,7 +25,11 @@ export const useCartStore = create<CartStore>()(
 
         if (existingItem) {
           set({
-            cart: currentCart.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item)),
+            cart: currentCart.map((item) =>
+              item.id === product.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item,
+            ),
           });
         } else {
           set({ cart: [...currentCart, { ...product, quantity: 1 }] });
@@ -49,6 +53,6 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: "cart-storage",
-    }
-  )
+    },
+  ),
 );

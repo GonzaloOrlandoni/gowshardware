@@ -14,7 +14,16 @@ export const metadata: Metadata = {
   title: "GOWS Hardware | Componentes PC, Armado Gamer y Hardware Premium",
   description:
     "Tienda de hardware premium para gaming y workstation. CPU, GPU, RAM, SSD y armado de PC profesional. Envíos a todo el país. Garantía oficial.",
-  keywords: ["hardware", "PC gamer", "componentes PC", "GPU", "CPU", "armado de PC", "GOWS Hardware", "Argentina"],
+  keywords: [
+    "hardware",
+    "PC gamer",
+    "componentes PC",
+    "GPU",
+    "CPU",
+    "armado de PC",
+    "GOWS Hardware",
+    "Argentina",
+  ],
   authors: [{ name: "GO Web Solutions" }],
   robots: { index: true, follow: true },
   openGraph: {
@@ -27,7 +36,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "GOWS Hardware | Componentes PC Premium",
-    description: "CPU, GPU, RAM, SSD y armado de PC profesional. ¡Potenciá tu setup!",
+    description:
+      "CPU, GPU, RAM, SSD y armado de PC profesional. ¡Potenciá tu setup!",
   },
 };
 

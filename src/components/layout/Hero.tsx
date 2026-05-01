@@ -18,12 +18,13 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl font-extrabold leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              Potencia tu Setup con <span className="text-blue-600">Hardware Premium</span>
+              Potencia tu Setup con{" "}
+              <span className="text-blue-600">Hardware Premium</span>
             </h1>
 
             <p className="text-lg text-slate-600">
-              En GOWS Hardware seleccionamos los mejores componentes para gamers. Armado profesional, garantía oficial y
-              envíos asegurados.
+              En GOWS Hardware seleccionamos los mejores componentes para
+              gamers. Armado profesional, garantía oficial y envíos asegurados.
             </p>
 
             {/* Botones */}
@@ -48,18 +49,30 @@ export default function Hero() {
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
               <div className="flex flex-col gap-1 rounded-lg border border-slate-100 bg-slate-50 p-3">
                 <ShieldCheck className="text-green-600" size={24} />
-                <span className="text-xs font-bold text-slate-900">Garantía Oficial</span>
-                <span className="text-[10px] text-slate-500">En todos los productos</span>
+                <span className="text-xs font-bold text-slate-900">
+                  Garantía Oficial
+                </span>
+                <span className="text-[10px] text-slate-500">
+                  En todos los productos
+                </span>
               </div>
               <div className="flex flex-col gap-1 rounded-lg border border-slate-100 bg-slate-50 p-3">
                 <Users className="text-blue-600" size={24} />
-                <span className="text-xs font-bold text-slate-900">+1000 Clientes</span>
-                <span className="text-[10px] text-slate-500">Felices en todo el país</span>
+                <span className="text-xs font-bold text-slate-900">
+                  +1000 Clientes
+                </span>
+                <span className="text-[10px] text-slate-500">
+                  Felices en todo el país
+                </span>
               </div>
               <div className="hidden flex-col gap-1 rounded-lg border border-slate-100 bg-slate-50 p-3 sm:flex">
                 <Truck className="text-orange-600" size={24} />
-                <span className="text-xs font-bold text-slate-900">Envíos Seguros</span>
-                <span className="text-[10px] text-slate-500">A todo el territorio</span>
+                <span className="text-xs font-bold text-slate-900">
+                  Envíos Seguros
+                </span>
+                <span className="text-[10px] text-slate-500">
+                  A todo el territorio
+                </span>
               </div>
             </div>
           </div>
