@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "GOWS Hardware | Componentes PC, Armado Gamer y Hardware Premium",
   description:
     "Tienda de hardware premium para gaming y workstation. CPU, GPU, RAM, SSD y armado de PC profesional. Envíos a todo el país. Garantía oficial.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   keywords: [
     "hardware",
     "PC gamer",
