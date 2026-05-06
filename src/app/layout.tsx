@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Tienda de hardware premium para gaming y workstation. CPU, GPU, RAM, SSD y armado de PC profesional. Envíos a todo el país. Garantía oficial.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.ico",
   },
   keywords: [
     "hardware",

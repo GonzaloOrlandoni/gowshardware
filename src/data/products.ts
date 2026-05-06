@@ -29,7 +29,7 @@ export const products: Product[] = [
     price: 650,
     category: "CPU",
     image:
-      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1555616635-6409600377c8?auto=format&fit=crop&w=800&q=80",
     stock: 15,
     specs: { Nucleos: "16", Socket: "AM5" },
   },
