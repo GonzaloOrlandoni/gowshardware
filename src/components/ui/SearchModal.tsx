@@ -28,7 +28,6 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
           p.name.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
           p.category.toLowerCase().includes(debouncedQuery.toLowerCase()),
       );
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setResults(filtered.slice(0, 5));
     }
   }, [debouncedQuery]);

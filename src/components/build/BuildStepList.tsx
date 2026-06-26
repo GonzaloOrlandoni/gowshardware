@@ -3,9 +3,11 @@ import { X, AlertCircle } from "lucide-react";
 import { Product } from "@/types/product";
 
 interface BuildStepListProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   steps: any[];
   selection: Record<string, Product[]>;
   setActiveStepId: (id: string) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setStorageFilter: (filter: any) => void;
   onRemove: (stepId: string, index: number) => void;
 }

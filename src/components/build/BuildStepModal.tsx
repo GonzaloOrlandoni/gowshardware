@@ -7,11 +7,13 @@ type StorageFilterType = "todos" | "ssd" | "hdd";
 
 interface BuildStepModalProps {
   activeStepId: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   activeStepConfig: any;
   storageFilter: StorageFilterType;
   setStorageFilter: (filter: StorageFilterType) => void;
   modalProducts: Product[];
   onClose: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSelect: (product: Product, stepConfig: any) => void;
 }
 
