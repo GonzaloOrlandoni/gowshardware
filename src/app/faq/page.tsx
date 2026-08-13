@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
@@ -42,13 +42,13 @@ export default function FAQPage() {
   return (
     <div className="container mx-auto max-w-3xl px-4 py-12">
       <div className="mb-10 text-center">
-        <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+        <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-neon-green">
           <HelpCircle size={32} />
         </div>
-        <h1 className="text-3xl font-extrabold text-slate-900">
+        <h1 className="text-3xl font-extrabold text-white">
           Preguntas Frecuentes
         </h1>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-slate-400">
           Resolvemos tus dudas sobre compras, envíos y garantías.
         </p>
       </div>
@@ -59,26 +59,26 @@ export default function FAQPage() {
           return (
             <div
               key={idx}
-              className={`overflow-hidden rounded-xl border transition-all ${isOpen ? "border-blue-200 bg-blue-50/30 shadow-sm" : "border-slate-200 bg-white"}`}
+              className={`overflow-hidden rounded-xl border transition-all ${isOpen ? "border-blue-200 bg-neon-green/10/30 shadow-sm" : "border-white/10 bg-white/5 backdrop-blur-md"}`}
             >
               <button
                 onClick={() => setOpenIndex(isOpen ? null : idx)}
                 className="flex w-full items-center justify-between p-5 text-left"
               >
                 <span
-                  className={`font-bold ${isOpen ? "text-blue-700" : "text-slate-700"}`}
+                  className={`font-bold ${isOpen ? "text-neon-green drop-shadow-[0_0_8px_#ccff00]" : "text-slate-300"}`}
                 >
                   {faq.question}
                 </span>
                 {isOpen ? (
-                  <ChevronUp className="text-blue-600" />
+                  <ChevronUp className="text-neon-green" />
                 ) : (
                   <ChevronDown className="text-slate-400" />
                 )}
               </button>
 
               {isOpen && (
-                <div className="border-t border-blue-100 px-5 pb-5 pt-2 text-slate-600">
+                <div className="border-t border-blue-100 px-5 pb-5 pt-2 text-slate-400">
                   <p className="leading-relaxed">{faq.answer}</p>
                 </div>
               )}

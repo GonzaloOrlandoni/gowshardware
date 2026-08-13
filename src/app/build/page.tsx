@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
@@ -195,11 +195,11 @@ export default function BuildPage() {
 
   return (
     <div className="container mx-auto px-4 py-8 pb-24">
-      <div className="mb-8 border-b border-slate-200 pb-6">
-        <h1 className="text-3xl font-extrabold text-slate-900">
+      <div className="mb-8 border-b border-white/10 pb-6">
+        <h1 className="text-3xl font-extrabold text-white">
           Configurador de PC
         </h1>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-slate-400">
           Selecciona tus componentes. Nosotros la armamos.
         </p>
       </div>

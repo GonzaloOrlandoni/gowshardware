@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { X, AlertCircle } from "lucide-react";
 import { Product } from "@/types/product";
 
@@ -30,13 +30,13 @@ export default function BuildStepList({
         const containerClass = hasSelection
           ? "border-orange-200 bg-orange-50/30"
           : step.required
-            ? "border-slate-200 bg-white"
-            : "border-slate-200 bg-white";
+            ? "border-white/10 bg-white/5 backdrop-blur-md"
+            : "border-white/10 bg-white/5 backdrop-blur-md";
         const iconBgClass = hasSelection
           ? "bg-gradient-to-br from-orange-400 to-orange-600 text-white shadow-md"
           : step.required
-            ? "bg-slate-100 text-slate-500 border border-slate-200"
-            : "bg-slate-100 text-slate-400";
+            ? "bg-white/5 text-slate-400 border border-white/10"
+            : "bg-white/5 text-slate-400";
 
         return (
           <div
@@ -52,7 +52,7 @@ export default function BuildStepList({
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-bold text-slate-900">
+                    <h3 className="text-lg font-bold text-white">
                       {step.label}
                     </h3>
                     {step.required && !hasSelection && (
@@ -81,9 +81,9 @@ export default function BuildStepList({
                 className={`rounded-lg px-6 py-2.5 text-sm font-bold transition-colors ${
                   hasSelection
                     ? isMaxReached
-                      ? "bg-slate-100 text-slate-400 cursor-not-allowed"
+                      ? "bg-white/5 text-slate-400 cursor-not-allowed"
                       : "bg-orange-100 text-orange-700 hover:bg-orange-200"
-                    : "bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
+                    : "bg-neon-green text-black font-bold border-none  hover:bg-white hover:text-black hover:shadow-[0_0_15px_#ccff00] shadow-sm"
                 }`}
               >
                 {hasSelection
@@ -94,14 +94,14 @@ export default function BuildStepList({
               </button>
             </div>
             {hasSelection && (
-              <div className="border-t border-slate-200/50 bg-white px-4 py-3">
+              <div className="border-t border-white/10/50 bg-white/5 backdrop-blur-md px-4 py-3">
                 {selectedItems.map((item, idx) => (
                   <div
                     key={idx}
                     className="flex items-center justify-between py-2 first:pt-0 last:pb-0"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-slate-100 bg-slate-50 p-1">
+                      <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-black/20 p-1">
                         <Image
                           src={item.image}
                           alt={item.name}
@@ -111,10 +111,10 @@ export default function BuildStepList({
                         />
                       </div>
                       <div>
-                        <p className="line-clamp-1 text-sm font-medium text-slate-900">
+                        <p className="line-clamp-1 text-sm font-medium text-white">
                           {item.name}
                         </p>
-                        <p className="text-xs text-slate-500 font-bold">
+                        <p className="text-xs text-slate-400 font-bold">
                           ${item.price.toLocaleString()}
                         </p>
                       </div>

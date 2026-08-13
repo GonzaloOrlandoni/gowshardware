@@ -1,14 +1,12 @@
-export default function TermsPage() {
+﻿export default function TermsPage() {
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-12 text-slate-700">
-      <h1 className="mb-8 text-3xl font-bold text-slate-900">
+    <div className="container mx-auto max-w-3xl px-4 py-12 text-slate-300">
+      <h1 className="mb-8 text-3xl font-bold text-white">
         Términos y Condiciones
       </h1>
-      <div className="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+      <div className="space-y-6 bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-sm border border-white/10">
         <section>
-          <h2 className="text-lg font-bold text-slate-900 mb-2">
-            1. Introducción
-          </h2>
+          <h2 className="text-lg font-bold text-white mb-2">1. Introducción</h2>
           <p>
             Bienvenido a GOWS Hardware. Al acceder a nuestro sitio web, aceptas
             estar sujeto a estos términos de servicio, todas las leyes y
@@ -16,7 +14,7 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="text-lg font-bold text-slate-900 mb-2">
+          <h2 className="text-lg font-bold text-white mb-2">
             2. Garantía de Productos
           </h2>
           <p>
@@ -27,7 +25,7 @@ export default function TermsPage() {
           </p>
         </section>
         <section>
-          <h2 className="text-lg font-bold text-slate-900 mb-2">
+          <h2 className="text-lg font-bold text-white mb-2">
             3. Envíos y Entregas
           </h2>
           <p>

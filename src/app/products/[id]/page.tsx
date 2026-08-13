@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Check, Truck, ShieldCheck } from "lucide-react"; // Se quitó ShoppingCart
 import { products } from "@/data/products";

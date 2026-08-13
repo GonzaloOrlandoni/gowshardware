@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -39,16 +39,16 @@ export default function CartPage() {
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center px-4 animate-zoom-in">
         <div className="text-8xl">😔</div>
         <div>
-          <h2 className="text-3xl font-bold text-slate-900">
+          <h2 className="text-3xl font-bold text-white">
             Tu carrito está vacío
           </h2>
-          <p className="mt-2 text-slate-500 text-lg">
+          <p className="mt-2 text-slate-400 text-lg">
             Parece que aún no has agregado nada.
           </p>
         </div>
         <Link
           href="/"
-          className="rounded-full bg-blue-600 px-8 py-3 font-bold text-white transition-all hover:bg-blue-700 hover:shadow-lg hover:-translate-y-1"
+          className="rounded-full bg-neon-green text-black font-bold border-none px-8 py-3 font-bold  transition-all hover:bg-white hover:text-black hover:shadow-[0_0_15px_#ccff00] hover:shadow-lg hover:-translate-y-1"
         >
           Volver a la tienda
         </Link>
@@ -59,8 +59,8 @@ export default function CartPage() {
   // ESTADO: CARRITO CON PRODUCTOS
   return (
     <div className="container mx-auto px-4 py-10">
-      <div className="mb-8 flex items-center justify-between border-b border-slate-200 pb-6">
-        <h1 className="text-3xl font-bold text-slate-900">Tu Carrito</h1>
+      <div className="mb-8 flex items-center justify-between border-b border-white/10 pb-6">
+        <h1 className="text-3xl font-bold text-white">Tu Carrito</h1>
 
         {/* Botón Vaciar Carrito */}
         <button
@@ -78,10 +78,10 @@ export default function CartPage() {
           {cart.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:shadow-md"
+              className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-4 shadow-sm transition-all hover:shadow-md"
             >
               {/* Imagen del producto */}
-              <div className="h-24 w-24 shrink-0 overflow-hidden rounded-lg border border-slate-100 bg-slate-50 p-2">
+              <div className="h-24 w-24 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-black/20 p-2">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -93,12 +93,12 @@ export default function CartPage() {
 
               {/* Info del producto */}
               <div className="flex-1">
-                <h3 className="font-bold text-slate-900 line-clamp-1">
+                <h3 className="font-bold text-white line-clamp-1">
                   {item.name}
                 </h3>
-                <p className="text-sm text-slate-500 mb-1">{item.category}</p>
+                <p className="text-sm text-slate-400 mb-1">{item.category}</p>
                 <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <span className="bg-slate-100 px-2 py-1 rounded">
+                  <span className="bg-white/5 px-2 py-1 rounded">
                     Cant: {item.quantity}
                   </span>
                 </div>
@@ -106,7 +106,7 @@ export default function CartPage() {
 
               {/* Precio y Eliminar */}
               <div className="text-right flex flex-col items-end gap-2">
-                <p className="text-lg font-bold text-slate-900">
+                <p className="text-lg font-bold text-white">
                   ${(item.price * item.quantity).toLocaleString()}
                 </p>
                 <button
@@ -122,38 +122,38 @@ export default function CartPage() {
 
           <Link
             href="/#catalogo"
-            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:underline mt-6"
+            className="inline-flex items-center gap-2 text-sm font-medium text-neon-green hover:underline mt-6"
           >
             <ArrowLeft size={16} /> Continuar comprando
           </Link>
         </div>
 
         {/* COLUMNA DERECHA: RESUMEN DE PAGO */}
-        <div className="h-fit rounded-2xl border border-slate-200 bg-white p-6 shadow-lg lg:sticky lg:top-24">
-          <h2 className="mb-6 text-xl font-bold text-slate-900">
+        <div className="h-fit rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 shadow-lg lg:sticky lg:top-24">
+          <h2 className="mb-6 text-xl font-bold text-white">
             Resumen del Pedido
           </h2>
 
-          <div className="space-y-3 border-b border-slate-100 pb-6 text-sm">
+          <div className="space-y-3 border-b border-white/10 pb-6 text-sm">
             <div className="flex justify-between">
-              <span className="text-slate-600">Subtotal</span>
-              <span className="font-medium text-slate-900">
+              <span className="text-slate-400">Subtotal</span>
+              <span className="font-medium text-white">
                 ${total.toLocaleString()}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-600">Envío</span>
+              <span className="text-slate-400">Envío</span>
               <span className="font-bold text-green-600">Gratis</span>
             </div>
           </div>
 
           <div className="mt-6 flex justify-between items-end">
-            <span className="text-lg font-bold text-slate-900">Total</span>
+            <span className="text-lg font-bold text-white">Total</span>
             <div className="text-right">
-              <span className="block text-3xl font-extrabold text-blue-600">
+              <span className="block text-3xl font-extrabold text-neon-green">
                 ${total.toLocaleString()}
               </span>
-              <span className="text-xs text-slate-500">IVA Incluido</span>
+              <span className="text-xs text-slate-400">IVA Incluido</span>
             </div>
           </div>
 

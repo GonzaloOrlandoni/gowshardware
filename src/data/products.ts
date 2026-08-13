@@ -1,4 +1,4 @@
-import { Product } from "@/types/product";
+﻿import { Product } from "@/types/product";
 
 export const products: Product[] = [
   // SERVICIOS
@@ -29,7 +29,7 @@ export const products: Product[] = [
     price: 650,
     category: "CPU",
     image:
-      "https://images.unsplash.com/photo-1555616635-6409600377c8?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80",
     stock: 15,
     specs: { Nucleos: "16", Socket: "AM5" },
   },
@@ -106,7 +106,7 @@ export const products: Product[] = [
     price: 45,
     category: "Cooler",
     image:
-      "https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=800&q=80",
     stock: 20,
     specs: { Tipo: "Aire", Fan: "120mm" },
   },

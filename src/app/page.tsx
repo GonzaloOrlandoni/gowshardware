@@ -1,4 +1,4 @@
-import Hero from "@/components/layout/Hero";
+﻿import Hero from "@/components/layout/Hero";
 import ProductCard from "@/components/products/ProductCard";
 import { products } from "@/data/products";
 import Link from "next/link"; // <--- Importante para que funcione el enlace
@@ -14,10 +14,10 @@ export default function Home() {
       <section id="catalogo" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-end justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">
               Tendencias en Hardware
             </h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-400">
               Los componentes más buscados de la semana.
             </p>
           </div>
@@ -25,7 +25,7 @@ export default function Home() {
           {/* CORRECCIÓN AQUÍ: Apunta al ancla #catalogo */}
           <Link
             href="#catalogo"
-            className="hidden text-sm font-semibold text-blue-600 hover:text-blue-700 sm:block"
+            className="hidden text-sm font-semibold text-neon-green hover:text-white drop-shadow-[0_0_5px_rgba(204,255,0,0.3)] sm:block"
           >
             Ver todo el catálogo &rarr;
           </Link>

@@ -1,4 +1,4 @@
-"use client"; // Esto permite interactividad
+﻿"use client"; // Esto permite interactividad
 
 import { ShoppingCart, Check } from "lucide-react";
 import { useCartStore } from "@/store/cart";
@@ -30,11 +30,11 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
     <button
       onClick={handleAddToCart}
       disabled={isAdded}
-      className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-8 py-4 font-bold text-white transition-all
+      className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-8 py-4 font-bold  transition-all
         ${
           isAdded
             ? "bg-green-600 hover:bg-green-700"
-            : "bg-blue-600 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/25"
+            : "bg-neon-green text-black font-bold border-none hover:bg-white hover:text-black hover:shadow-[0_0_15px_#ccff00] hover:shadow-lg hover:shadow-blue-500/25"
         }`}
     >
       {isAdded ? (

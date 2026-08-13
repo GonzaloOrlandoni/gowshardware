@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import {
   Monitor,
   Instagram,
@@ -15,7 +15,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+    <footer className="bg-black/80 backdrop-blur-md text-slate-300 pt-16 pb-8 border-t border-white/10">
       <div className="container mx-auto px-4">
         {/* SECCIÓN SUPERIOR: DATOS Y LINKS */}
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-12">
@@ -25,7 +25,7 @@ export default function Footer() {
               href="/"
               className="flex items-center gap-2 mb-6 text-white font-bold text-xl group"
             >
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white transition-transform group-hover:scale-110">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-neon-green text-black transition-transform group-hover:scale-110">
                 <Monitor size={20} />
               </div>
               GOWS Hardware
@@ -38,19 +38,19 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href="#"
-                className="p-2 rounded-full bg-slate-800 hover:bg-blue-600 hover:text-white transition-all"
+                className="p-2 rounded-full bg-white/10 hover:bg-neon-green hover:text-black hover:shadow-[0_0_15px_#ccff00] transition-all"
               >
                 <Instagram size={18} />
               </a>
               <a
                 href="#"
-                className="p-2 rounded-full bg-slate-800 hover:bg-blue-600 hover:text-white transition-all"
+                className="p-2 rounded-full bg-white/10 hover:bg-neon-green hover:text-black hover:shadow-[0_0_15px_#ccff00] transition-all"
               >
                 <Facebook size={18} />
               </a>
               <a
                 href="#"
-                className="p-2 rounded-full bg-slate-800 hover:bg-blue-600 hover:text-white transition-all"
+                className="p-2 rounded-full bg-white/10 hover:bg-neon-green hover:text-black hover:shadow-[0_0_15px_#ccff00] transition-all"
               >
                 <Twitter size={18} />
               </a>
@@ -59,40 +59,41 @@ export default function Footer() {
 
           {/* 2. Ayuda al Cliente */}
           <div>
-            <h3 className="text-white font-bold mb-6 border-b border-slate-700 pb-2 inline-block">
+            <h3 className="text-white font-bold mb-6 border-b border-white/10 pb-2 inline-block">
               Ayuda
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link
                   href="/faq"
-                  className="hover:text-blue-400 transition-colors flex items-center gap-2"
+                  className="hover:text-neon-green transition-colors flex items-center gap-2"
                 >
-                  <span className="text-blue-500">›</span> Preguntas Frecuentes
+                  <span className="text-neon-green">›</span> Preguntas
+                  Frecuentes
                 </Link>
               </li>
               <li>
                 <Link
                   href="/cart"
-                  className="hover:text-blue-400 transition-colors flex items-center gap-2"
+                  className="hover:text-neon-green transition-colors flex items-center gap-2"
                 >
-                  <span className="text-blue-500">›</span> Mi Carrito
+                  <span className="text-neon-green">›</span> Mi Carrito
                 </Link>
               </li>
               <li>
                 <Link
                   href="/profile"
-                  className="hover:text-blue-400 transition-colors flex items-center gap-2"
+                  className="hover:text-neon-green transition-colors flex items-center gap-2"
                 >
-                  <span className="text-blue-500">›</span> Mi Cuenta
+                  <span className="text-neon-green">›</span> Mi Cuenta
                 </Link>
               </li>
               <li>
                 <Link
                   href="#"
-                  className="hover:text-blue-400 transition-colors flex items-center gap-2"
+                  className="hover:text-neon-green transition-colors flex items-center gap-2"
                 >
-                  <span className="text-blue-500">›</span> Botón de
+                  <span className="text-neon-green">›</span> Botón de
                   Arrepentimiento
                 </Link>
               </li>
@@ -101,12 +102,12 @@ export default function Footer() {
 
           {/* 3. Contacto */}
           <div>
-            <h3 className="text-white font-bold mb-6 border-b border-slate-700 pb-2 inline-block">
+            <h3 className="text-white font-bold mb-6 border-b border-white/10 pb-2 inline-block">
               Contacto
             </h3>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-blue-500 mt-1 shrink-0" />
+                <MapPin size={18} className="text-neon-green mt-1 shrink-0" />
                 <span>
                   Av. Corrientes 1234, CABA
                   <br />
@@ -114,11 +115,11 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-blue-500 shrink-0" />
+                <Phone size={18} className="text-neon-green shrink-0" />
                 <span>+54 9 11 1234-5678</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-blue-500 shrink-0" />
+                <Mail size={18} className="text-neon-green shrink-0" />
                 <span>ventas@gowshardware.com</span>
               </li>
             </ul>
@@ -126,7 +127,7 @@ export default function Footer() {
 
           {/* 4. Medios de Pago (Nuevo!) */}
           <div>
-            <h3 className="text-white font-bold mb-6 border-b border-slate-700 pb-2 inline-block">
+            <h3 className="text-white font-bold mb-6 border-b border-white/10 pb-2 inline-block">
               Medios de Pago
             </h3>
             <div className="grid grid-cols-3 gap-3">
@@ -150,13 +151,13 @@ export default function Footer() {
                 className="flex h-10 items-center justify-center rounded bg-white p-1"
                 title="American Express"
               >
-                <span className="text-[10px] font-bold text-blue-400">
+                <span className="text-[10px] font-bold text-neon-green">
                   AMEX
                 </span>
               </div>
               {/* Mercado Pago / Digital */}
               <div
-                className="flex h-10 items-center justify-center rounded bg-white p-1 text-blue-500"
+                className="flex h-10 items-center justify-center rounded bg-white p-1 text-neon-green"
                 title="Mercado Pago"
               >
                 <QrCode size={20} />
@@ -181,7 +182,7 @@ export default function Footer() {
         </div>
 
         {/* SECCIÓN INFERIOR: LEGALES */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 GOWS Hardware. Todos los derechos reservados.</p>
 
           <div className="flex items-center gap-6">

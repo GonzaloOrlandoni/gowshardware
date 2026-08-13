@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -59,7 +59,7 @@ export default function RootLayout({
             Usamos min-h-screen para asegurar que ocupe al menos toda la pantalla
             y bg-slate-50 para un fondo gris muy suave y moderno.
         */}
-        <main className="min-h-screen bg-slate-50">{children}</main>
+        <main className="min-h-screen">{children}</main>
 
         {/* 3. Pie de Página (Footer) */}
         <Footer />
